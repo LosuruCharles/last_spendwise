@@ -1,0 +1,136 @@
+:root {
+  --paper: #f6f7f2;
+  --ink: #1c2a28;
+  --muted: #5d6b68;
+  --line: #d5dad4;
+  --surface: #ffffff;
+  --accent: #1f6f5c;
+  --good: #1f7a4d;
+  --warn: #a8710f;
+  --bad: #b3372f;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: "Segoe UI", system-ui, -apple-system, Roboto, sans-serif;
+  line-height: 1.5;
+}
+
+.site-header {
+  padding: 2rem 1.25rem 1rem;
+  max-width: 62rem;
+  margin: 0 auto;
+}
+.site-header h1 { margin: 0; font-size: 2.2rem; letter-spacing: -0.02em; }
+.site-header p { margin: 0.25rem 0 0; color: var(--muted); }
+
+main { max-width: 62rem; margin: 0 auto; padding: 0 1.25rem 3rem; }
+
+h2 { font-size: 1.1rem; margin: 0 0 0.75rem; }
+
+section {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 1.25rem;
+  margin-bottom: 1.25rem;
+}
+
+/* Dashboard */
+.dashboard { border-left: 6px solid var(--accent); }
+.totals { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-bottom: 1rem; }
+.totals .label { display: block; color: var(--muted); font-size: 0.85rem; }
+.totals strong { font-size: 1.5rem; }
+
+.bar { height: 14px; background: #e6eae5; border-radius: 7px; overflow: hidden; }
+.bar-fill { height: 100%; width: 0; background: var(--good); transition: width 0.3s ease, background-color 0.3s ease; }
+
+.status { margin: 0.9rem 0 0; font-weight: 600; }
+.status-empty { color: var(--muted); font-weight: 400; }
+.status-good { color: var(--good); }
+.status-warn { color: var(--warn); }
+.status-bad { color: var(--bad); }
+
+/* Layout */
+.columns { display: grid; grid-template-columns: 1fr 1.2fr; gap: 1.25rem; align-items: start; }
+
+/* Forms */
+form label { display: block; margin: 0.8rem 0 0.25rem; font-weight: 600; font-size: 0.9rem; }
+.row { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+.row input { flex: 1; min-width: 8rem; }
+
+input, select {
+  width: 100%;
+  padding: 0.6rem 0.7rem;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  font: inherit;
+  background: #fff;
+  color: inherit;
+}
+.row select { width: auto; }
+
+button {
+  padding: 0.6rem 1rem;
+  border: 0;
+  border-radius: 6px;
+  background: var(--accent);
+  color: #fff;
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+}
+button:hover { background: #185a4a; }
+form#expense-form button { margin-top: 1rem; width: 100%; }
+button.secondary { background: transparent; color: var(--bad); border: 1px solid var(--bad); }
+button.secondary:hover { background: #fbeceb; }
+
+:focus-visible { outline: 3px solid #f0b429; outline-offset: 2px; }
+
+.error { color: var(--bad); font-size: 0.9rem; min-height: 1.2em; margin: 0.5rem 0 0; }
+
+/* Lists */
+.list-head { display: flex; justify-content: space-between; align-items: center; gap: 1rem; flex-wrap: wrap; margin-bottom: 0.75rem; }
+.list-head h2 { margin: 0; }
+
+.expense-list, .category-list { list-style: none; margin: 0; padding: 0; }
+
+.expense-list li {
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.7rem 0;
+  border-bottom: 1px solid var(--line);
+}
+.expense-list li:last-child { border-bottom: 0; }
+.expense-list .name { font-weight: 600; }
+.expense-list .meta { display: block; color: var(--muted); font-size: 0.82rem; font-weight: 400; }
+.expense-list .amount { font-variant-numeric: tabular-nums; font-weight: 600; }
+.expense-list .big { color: var(--bad); }
+.expense-list button { padding: 0.3rem 0.6rem; font-size: 0.85rem; background: transparent; color: var(--muted); border: 1px solid var(--line); }
+.expense-list button:hover { color: var(--bad); border-color: var(--bad); background: transparent; }
+
+.category-list li { display: flex; justify-content: space-between; padding: 0.4rem 0; border-bottom: 1px dashed var(--line); }
+.category-list li:last-child { border-bottom: 0; }
+.category-list .top { font-weight: 700; }
+
+.empty { color: var(--muted); padding: 1rem 0; }
+
+.visually-hidden {
+  position: absolute; width: 1px; height: 1px; overflow: hidden;
+  clip: rect(0 0 0 0); white-space: nowrap;
+}
+
+@media (max-width: 760px) {
+  .columns { grid-template-columns: 1fr; }
+  .totals strong { font-size: 1.15rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bar-fill { transition: none; }
+}
