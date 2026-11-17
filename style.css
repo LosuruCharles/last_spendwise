@@ -134,3 +134,11 @@ button.secondary:hover { background: #fbeceb; }
 @media (prefers-reduced-motion: reduce) {
   .bar-fill { transition: none; }
 }
+
+footer {
+  background: var(--surface);
+  color: var(--accent);
+  text-align: center;
+  padding: 10px;
+  margin-top: 20px;
+}
