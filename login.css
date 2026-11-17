@@ -16,3 +16,18 @@ button:disabled { opacity:.6; cursor:wait; }
 #msg { margin-top:14px; font-size:.9rem; min-height:1.2em; }
 #msg.err { color:var(--danger); } #msg.ok { color:var(--accent); }
 [hidden] { display:none !important; }
+footer {
+  background: var(--surface);
+  color: var(--accent);
+  text-align: center;
+  padding: 10px;
+  margin-top: 20px;
+}
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+main {
+  flex: 1;
+}
