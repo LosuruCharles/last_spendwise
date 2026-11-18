@@ -97,6 +97,13 @@
 
   <script src="script.js"></script>
   <script src="logout.js"></script>
+  <script>
+  document.getElementById('logout').addEventListener('click', async (e) => {
+    e.preventDefault();
+    await sb.auth.signOut();
+    location.href = 'login.html';
+  });
+</script>
 </body>
 <footer>
   <p>&copy; 2026 Expense Tracker. All rights reserved.</p>
