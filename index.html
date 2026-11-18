@@ -8,6 +8,10 @@
 
   <link rel="stylesheet" href="index.css">
 </head>
+<nav>
+  <a href="index.html">Home</a>
+  <a href="#" id="logout">Log out</a>
+</nav>
 
 <body>
   <div class="loading-container">
@@ -19,6 +23,13 @@
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.0/dist/umd/supabase.min.js"></script>
   <script src="config.js"></script>
   <script src="index.js"></script>
+<script>
+  document.getElementById('logout').addEventListener('click', async (e) => {
+    e.preventDefault();
+    await sb.auth.signOut();
+    location.href = 'login.html';
+  });
+</script>
 </body>
 <footer>
   <p>&copy; 2026 Expense Tracker. All rights reserved.</p>
